@@ -7,7 +7,7 @@ pipeline{
         
         stage('Get Code'){
             steps{
-                git 'https://github.com/ashokitschool/SB-REST-H2-DB-APP.git'
+                git 'https://github.com/Rashid-Khan-Github/mavenapp.git'
             }
         }
         stage('Build Code'){
@@ -25,7 +25,7 @@ pipeline{
          stage('Deployement'){
             steps{
                 sshagent(['Tomcat-Server-Agent']) {
-                    sh 'scp -o StrictHostKeyChecking=no target/ ec2-user@54.175.50.56:/home/ec2-user/apache-tomcat-9.0.73/webapps'
+                    sh 'scp -o StrictHostKeyChecking=no target/01MavenWebApp.war ec2-user@54.175.50.56:/home/ec2-user/apache-tomcat-9.0.73/webapps'
                 }
             }
         }
