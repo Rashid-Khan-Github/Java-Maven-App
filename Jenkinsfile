@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-@Library('Jenkins-Shared-Library')
+@Library('jenkins-shared-library')
 def gv
 
 pipeline{
@@ -16,7 +16,7 @@ pipeline{
                 }
             }
         }
-        
+
         stage("Testing"){
             steps{
                 script{
