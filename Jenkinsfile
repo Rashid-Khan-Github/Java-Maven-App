@@ -29,7 +29,7 @@ pipeline{
         stage("Building JAR "){
             steps{
                 script{
-                    buildJAR()
+                    buildJar()
                 }
             }
         }
