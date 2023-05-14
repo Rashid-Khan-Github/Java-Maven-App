@@ -14,12 +14,13 @@ pipeline{
         }
 
         stage("Build "){
-            steps{
-                when{
+            when{
                     expression{
                         BRANCH_NAME == "master"
                     }
                 }
+
+            steps{
                 script{
                     echo "Building the application"
                 }
@@ -27,12 +28,12 @@ pipeline{
         }
         
         stage("Deploy"){
-            steps{
-                when{
+            when{
                     expression{
                         BRANCH_NAME == "master"
                     }
                 }
+            steps{
                 script{
                     echo "Deploying the Application"
                 }
