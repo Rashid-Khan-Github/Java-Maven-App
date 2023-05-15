@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     echo "Testing the application"
-                    echo "Executing pipeline for branch $BRANCH_NAME"
+                    echo "Executing pipeline for branch ${BRANCH_NAME}"
                 }
             }
         }
@@ -44,9 +44,9 @@ pipeline {
                 script {
                     echo "building the docker image.."
                     withCredentials([usernamePassword(credentialsId: 'My-Docker-Hub', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh "docker build -t dockerjackal/java-maven-app:$IMAGE_NAME ."
+                        sh "docker build -t dockerjackal/java-maven-app:${IMAGE_NAME} ."
                         sh "echo $PASS | docker login -u $USER --password-stdin"
-                        sh "docker push dockerjackal/java-maven-app:$IMAGE_NAME"
+                        sh "docker push dockerjackal/java-maven-app:${IMAGE_NAME}"
                     }
                 }
             }
