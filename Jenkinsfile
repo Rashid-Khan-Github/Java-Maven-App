@@ -39,6 +39,7 @@ pipeline {
                 }
             }
         }
+
         stage("Building Docker Image") {
             steps {
                 script {
@@ -50,15 +51,16 @@ pipeline {
                     }
                 }
             }
+        }
 
-            stage("Deploy") {
+        stage("Deploy") {
 
-                steps {
-                    script {
+            steps {
+                script {
                         echo "Deploying the Application"
-                    }
                 }
             }
         }
+    
     }
 }
